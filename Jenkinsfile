@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    environment {
+        CREDENTIALS_ID = '850d941b-7a1b-479d-8e1d-6b0d40b89d68'
+        PROJECT_ID     = 'sonsaekim-ai'
+        CLUSTER_NAME   = 'k8s'
+        LOCATION       = 'asia-northeast3-a'
+    }
+
+    stages {
+        stage('Checkout') {
+            when { branch 'main' }
+            steps { checkout scm }
+        }
+
+        stage('Deploy Infra') {
+            when { branch 'main' }
+            steps {
+                step([
+                    $class: 'KubernetesEngineBuilder',
+                    projectId: env.PROJECT_ID,
+                    clusterName: env.CLUSTER_NAME,
+                    location: env.LOCATION,
+                    manifestPattern: 'k8s/',
+                    credentialsId: env.CREDENTIALS_ID,
+                    verifyDeployments: false
+                ])
+            }
+        }
+    }
+
+    post {
+        success { echo "SUCCESS" }
+        failure { echo "FAILED" }
+    }
+}
