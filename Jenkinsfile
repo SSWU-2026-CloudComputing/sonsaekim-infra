@@ -10,12 +10,10 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            when { branch 'main' }
             steps { checkout scm }
         }
 
         stage('Deploy Infra') {
-            when { branch 'main' }
             steps {
                 step([
                     $class: 'KubernetesEngineBuilder',
