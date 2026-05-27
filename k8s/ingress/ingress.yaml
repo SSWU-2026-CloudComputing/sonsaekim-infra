@@ -49,83 +49,13 @@ spec:
             name: learning-service
             port:
               number: 3000
-      - path: /js/quiz/*
+      - path: /learning/*
         pathType: ImplementationSpecific
         backend:
           service:
             name: learning-service
             port:
               number: 3000
-      - path: /js/game/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /js/imitate/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /js/auth/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
-      - path: /css/quiz/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /css/game/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /css/imitate/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /css/learn/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /css/layouts/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
-      - path: /css/auth/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
-      - path: /css/mypage/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
       - path: /assets/*
         pathType: ImplementationSpecific
         backend:
