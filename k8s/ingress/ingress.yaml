@@ -1,0 +1,98 @@
+# sonsaekim Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sonsaekim-ingress
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+spec:
+  defaultBackend:
+    service:
+      name: auth-service
+      port:
+        number: 3001
+  rules:
+  - http:
+      paths:
+      - path: /learn/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /quiz/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /game/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /imitate/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /api/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /auth/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 3001
+
+      - path: /home
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 3001
+
+      - path: /loginHome
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 3001
+
+      - path: /logout
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 3001
+
+      - path: /mypage/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: auth-service
+            port:
+              number: 3001
+
+      - path: /progress/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: progress-service
+            port:
+              number: 3002
