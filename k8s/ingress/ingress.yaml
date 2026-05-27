@@ -42,13 +42,6 @@ spec:
             name: learning-service
             port:
               number: 3000
-      - path: /contents/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: learning-service
-            port:
-              number: 3000
       - path: /api/*
         pathType: ImplementationSpecific
         backend:
