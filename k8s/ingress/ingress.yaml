@@ -49,6 +49,34 @@ spec:
             name: learning-service
             port:
               number: 3000
+      - path: /js/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /css/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /assets/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
+      - path: /uploads/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: learning-service
+            port:
+              number: 3000
       - path: /auth/*
         pathType: ImplementationSpecific
         backend:
@@ -56,7 +84,6 @@ spec:
             name: auth-service
             port:
               number: 3001
-
       - path: /home
         pathType: ImplementationSpecific
         backend:
@@ -64,7 +91,6 @@ spec:
             name: auth-service
             port:
               number: 3001
-
       - path: /loginHome
         pathType: ImplementationSpecific
         backend:
@@ -72,7 +98,6 @@ spec:
             name: auth-service
             port:
               number: 3001
-
       - path: /logout
         pathType: ImplementationSpecific
         backend:
@@ -80,7 +105,6 @@ spec:
             name: auth-service
             port:
               number: 3001
-
       - path: /mypage/*
         pathType: ImplementationSpecific
         backend:
@@ -88,7 +112,6 @@ spec:
             name: auth-service
             port:
               number: 3001
-
       - path: /progress/*
         pathType: ImplementationSpecific
         backend:
