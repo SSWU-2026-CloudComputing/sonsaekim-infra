@@ -8,7 +8,7 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: sonsaekim-auth-svc
+      name: auth-service
       port:
         number: 80
   rules:
@@ -18,41 +18,41 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
       - path: /quiz/*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
       - path: /game/*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
       - path: /imitate/*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
       - path: /contents/*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
       - path: /api/*
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node
+            name: learning-service
             port:
               number: 80
