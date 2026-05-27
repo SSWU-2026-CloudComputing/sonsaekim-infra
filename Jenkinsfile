@@ -15,15 +15,26 @@ pipeline {
 
         stage('Deploy Infra') {
             steps {
-                step([
-                    $class: 'KubernetesEngineBuilder',
-                    projectId: env.PROJECT_ID,
-                    clusterName: env.CLUSTER_NAME,
-                    location: env.LOCATION,
-                    manifestPattern: 'k8s/ingress/ingress.yaml,k8s/rabbitmq/deployment.yaml,k8s/rabbitmq/service.yaml,k8s/redis/deployment.yaml,k8s/redis/service.yaml',
-                    credentialsId: env.CREDENTIALS_ID,
-                    verifyDeployments: false
-                ])
+                script {
+                    def manifests = [
+                        'k8s/ingress/ingress.yaml',
+                        'k8s/rabbitmq/deployment.yaml',
+                        'k8s/rabbitmq/service.yaml',
+                        'k8s/redis/deployment.yaml',
+                        'k8s/redis/service.yaml'
+                    ]
+                    manifests.each { manifest ->
+                        step([
+                            $class: 'KubernetesEngineBuilder',
+                            projectId: env.PROJECT_ID,
+                            clusterName: env.CLUSTER_NAME,
+                            location: env.LOCATION,
+                            manifestPattern: manifest,
+                            credentialsId: env.CREDENTIALS_ID,
+                            verifyDeployments: false
+                        ])
+                    }
+                }
             }
         }
     }
