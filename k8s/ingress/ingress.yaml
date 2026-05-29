@@ -5,9 +5,8 @@ metadata:
   name: sonsaekim-ingress
   annotations:
     kubernetes.io/ingress.class: "gce"
+    networking.gke.io/managed-certificates: learning-cert
 spec:
-  tls:
-  - secretName: learning-tls-secret
   defaultBackend:
     service:
       name: auth-service
