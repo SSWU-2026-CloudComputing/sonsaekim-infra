@@ -6,6 +6,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "gce"
 spec:
+  tls:
+  - secretName: learning-tls-secret
   defaultBackend:
     service:
       name: auth-service
